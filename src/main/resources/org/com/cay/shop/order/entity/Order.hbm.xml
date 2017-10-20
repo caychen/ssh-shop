@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-9-30 20:34:08 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="org.com.cay.shop.order.entity.Order" table="ORDERS">
+        <id name="oid" type="java.lang.Integer">
+            <column name="OID" />
+            <generator class="native" />
+        </id>
+        <property name="totalMoney" type="java.lang.Double">
+            <column name="TOTALMONEY" />
+        </property>
+        <property name="orderTime" type="java.util.Date">
+            <column name="ORDERTIME" />
+        </property>
+        <property name="state" type="java.lang.Integer">
+            <column name="STATE" />
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <property name="addr" type="java.lang.String">
+            <column name="ADDR" />
+        </property>
+        <property name="phone" type="java.lang.String">
+            <column name="PHONE" />
+        </property>
+        <many-to-one name="user" lazy="false" class="org.com.cay.shop.user.entity.User">
+            <column name="UID" />
+        </many-to-one>
+        
+        <set name="orderItems" order-by="itemId" cascade="save-update" lazy="false">
+            <key>
+                <column name="OID" />
+            </key>
+            <one-to-many class="org.com.cay.shop.order.entity.OrderItem" />
+        </set>
+    </class>
+</hibernate-mapping>

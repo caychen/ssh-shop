@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+	<package name="user" extends="shop" namespace="/">
+		<global-results>
+			<result name="msg">/WEB-INF/jsp/msg.jsp</result>
+		</global-results>
+	
+		<action name="user_*" class="userAction" method="{1}">
+			<result name="registerPage">/WEB-INF/jsp/register.jsp</result>
+			<result name="loginPage">/WEB-INF/jsp/login.jsp</result>
+			<result name="loginPage">/WEB-INF/jsp/login.jsp</result>
+			<result name="input">/WEB-INF/jsp/register.jsp</result>
+			<result name="loginSuccess" type="redirectAction">index</result>
+			<result name="logout" type="redirectAction">index</result>
+			<allowed-methods>registerPage,findByName,register,active,loginPage,login,logout</allowed-methods>
+		</action>
+	</package>
+</struts>

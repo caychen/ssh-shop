@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+	<package name="cart" extends="shop" namespace="/">
+		<action name="cart_*" class="cartAction" method="{1}">
+			<result name="cart">/WEB-INF/jsp/cart.jsp</result>
+			<result name="clearCart">/WEB-INF/jsp/cart.jsp</result>
+			<result name="removeCart">/WEB-INF/jsp/cart.jsp</result>
+			<result name="list">/WEB-INF/jsp/cart.jsp</result>
+			<allowed-methods>addToCart,clearCart,removeCart,list</allowed-methods>
+		</action>
+		
+	</package>
+</struts>

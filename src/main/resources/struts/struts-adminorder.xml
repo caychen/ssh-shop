@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+	<package name="adminorder" extends="shop" namespace="/">
+		<default-interceptor-ref name="myStack"></default-interceptor-ref>
+		
+		<action name="adminOrder_*" class="adminOrderAction" method="{1}">
+			<result name="findAll">/admin/order/list.jsp</result>
+			<result name="findOrderItem">/admin/order/orderItem.jsp</result>
+			<result name="success" type="redirectAction">adminOrder_findAll</result>
+			<allowed-methods>findAll,updateState,findOrderItem</allowed-methods>
+		</action>
+		
+	</package>
+</struts>

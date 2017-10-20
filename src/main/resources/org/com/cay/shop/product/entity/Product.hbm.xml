@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-9-24 20:59:09 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="org.com.cay.shop.product.entity.Product" table="PRODUCT">
+        <id name="pid" type="java.lang.Integer">
+            <column name="PID" />
+            <generator class="native" />
+        </id>
+        <property name="pname" type="java.lang.String">
+            <column name="PNAME" />
+        </property>
+        <property name="market_price" type="java.lang.Double">
+            <column name="MARKET_PRICE" />
+        </property>
+        <property name="shop_price" type="java.lang.Double">
+            <column name="SHOP_PRICE" />
+        </property>
+        <property name="image" type="java.lang.String">
+            <column name="IMAGE" />
+        </property>
+        <property name="pdesc" type="java.lang.String">
+            <column name="PDESC" />
+        </property>
+        <property name="is_hot" type="java.lang.Integer">
+            <column name="IS_HOT" />
+        </property>
+        <property name="pdate" type="java.util.Date">
+            <column name="PDATE" />
+        </property>
+        
+        <many-to-one name="categorySecond" class="org.com.cay.shop.categorysecond.entity.CategorySecond" lazy="false">
+        	<column name="csid"></column>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

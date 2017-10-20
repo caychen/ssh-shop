@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+	<package name="order" extends="shop" namespace="/">
+		<global-results>
+			<result name="msg">/WEB-INF/jsp/msg.jsp</result>
+		</global-results>
+	
+		<action name="order_*" class="orderAction" method="{1}">
+			<result name="loginPage">/WEB-INF/jsp/login.jsp</result>
+			<result name="save">/WEB-INF/jsp/order.jsp</result>
+			<result name="findByUid">/WEB-INF/jsp/orderList.jsp</result>
+			<result name="findByOidSuccess">/WEB-INF/jsp/order.jsp</result>
+			<result name="payOrder">/WEB-INF/jsp/order.jsp</result>
+			<result name="success" type="redirectAction">order_findByUid</result>
+			<allowed-methods>save,findByUid,findByOid,payOrder,callback,updateState</allowed-methods>
+		</action>
+	</package>
+</struts>

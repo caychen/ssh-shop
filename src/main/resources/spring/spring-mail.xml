@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- 	<bean id="mailMessage" class="org.springframework.mail.SimpleMailMessage">
+		<property name="from" value="${mail.from.email}"></property>
+	</bean> -->
+	
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="defaultEncoding" value="UTF-8"></property>
+		<property name="host" value="${mail.smtp.host}"></property>
+		<property name="username" value="${mail.from.email}"></property>
+		<property name="password" value="${mail.from.password}"></property>
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.debug">true</prop>
+				<prop key="mail.smtp.port">${mail.smtp.port}</prop>
+				<prop key="mail.smtp.auth">${mail.smtp.auth}</prop>
+				<prop key="mail.smtp.ssl.enable">${mail.smtp.ssl.enable}</prop>
+			</props>
+		</property>
+	</bean>
+
+</beans>
